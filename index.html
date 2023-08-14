@@ -2139,7 +2139,38 @@
       #site-header.has-header-media .overlay-header-media {
         background-color: rgba(0, 0, 0, 0.5);
       }
+
+      /* The Modal */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 53, 17, 0.603); /* Black background with opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #97ea3e;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #888;
+  max-width: 440px; /* Could be more or less, depending on screen size */
+}
+
+/* Buttons in the Modal */
+#yesBtn, #noBtn {
+  margin: 5px;
+}
+
     </style>
+    
   </head>
 
   <body
@@ -2406,7 +2437,14 @@
         </filter>
       </defs>
     </svg>
-
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <p>WARNING: This Shitcoin may potentially trigger seizures for people with photosensitive epilepsy. Degen discretion is
+        advised</p>
+        <button id="yesBtn">Kwantinue</button>
+        
+      </div>
+    </div>
     <div id="outer-wrap" class="site clr">
       <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
 
@@ -2897,6 +2935,7 @@
                                     loading="lazy"
                                     sizes="(max-width: 1000px) 100vw, 1000px"
                                   />
+                                  
                                 </div>
                               </div>
                               <section
@@ -2995,10 +3034,7 @@
                                     CA
                                     :0x000000000000000000000000
                                   </h2>
-                                  <audio id="background-audio" loop controls autoplay>
-                                    <source src="./wp-includes/african-rhythm-africa-groovy-sport-stomping-music-20622.mp3" type="audio/mp3">
                                   
-                                  </audio>
                                 </div>
                                 
                               </div>
@@ -5556,17 +5592,7 @@
       src="https://pepegriffin.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js?ver=2.8.8"
       id="ekit-widget-scripts-js"
     ></script>
-    <script>
-      const audio = document.getElementById('background-audio');
-
-      function toggleAudio() {
-        if (audio.paused) {
-          audio.play();
-        } else {
-          audio.pause();
-        }
-      }
-    </script>
+    
     <script id="eael-general-js-extra">
       var localize = {
         ajaxurl: "https:\/\/pepegriffin.com\/wp-admin\/admin-ajax.php",
@@ -6076,6 +6102,35 @@
       src="https://pepegriffin.com/wp-content/plugins/master-addons/assets/js/master-addons-scripts.js?ver=2.0.1"
       id="master-addons-scripts-js"
     ></script>
+    <script>
+      // Get the modal
+        const modal = document.getElementById('myModal');
+
+        // Get the buttons in the modal
+        const yesBtn = document.getElementById('yesBtn');
+       
+
+        // When the page loads or reloads, show the modal
+        window.onload = function () {
+          modal.style.display = 'block';
+        };
+
+        // When the user clicks "Yes," hide the modal and start background audio
+        yesBtn.onclick = function () {
+          modal.style.display = 'none';
+          startBackgroundAudio();
+        };
+
+       
+
+        // Function to start the background audio
+        function startBackgroundAudio() {
+          const audio = new Audio('./wp-includes/african-rhythm-africa-groovy-sport-stomping-music-20622.mp3');
+          audio.loop = true;
+          audio.play();
+        }
+
+    </script>
   </body>
 </html>
 
