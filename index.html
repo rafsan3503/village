@@ -2142,13 +2142,13 @@
 
       /* The Modal */
 .modal {
-  display: block; /* Hidden by default */
+  display: flex; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(14, 53, 17, 0.603); /* Black background with opacity */
 }
 
@@ -6112,7 +6112,7 @@
 
         // When the page loads or reloads, show the modal
         window.onload = function () {
-          modal.style.display = 'block';
+          modal.style.display = 'flex';
         };
 
         // When the user clicks "Yes," hide the modal and start background audio
